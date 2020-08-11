@@ -19,12 +19,13 @@
         let app = new Vue({
             el: '#app',
             data: {
-                list: ['这是第一行', '这是第二行'],
+                list: [],
                 inputValue: ''
             },
             methods: {
                 handleBtnClick: function() {
-                    alert(this.inputValue)
+                    this.list.push(this.inputValue),
+                    this.inputValue = ''
                 }
             }
         })
