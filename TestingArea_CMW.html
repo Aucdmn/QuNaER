@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算属性、方法、侦听器</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{fullName + ' ' + age1}}
+        <br>
+        {{fullName2() + ' ' + age2}}
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                firstName: 'Maohan',
+                lastName: 'Du',
+                fN2: 'Beckham',
+                lN2: 'David',
+                age1: '18',
+                age2: '20'
+
+            },
+            computed: {
+                fullName: function() {
+                    console.log('computed运行了一次');
+                    return this.firstName + ' ' + this.lastName
+                }
+            },
+            methods: {
+                fullName2: function() {
+                    console.log('methods运行了一次');
+                    return this.fN2 + ' ' + this.lN2
+                }
+            },
+            // watch: {
+
+            // }
+        })
+    </script>
+</body>
+</html>
