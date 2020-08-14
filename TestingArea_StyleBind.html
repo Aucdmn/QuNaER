@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue中的样式绑定</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app" :class="vObj" @click="handleDivClick">
+        Fuck you u fat pussy
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                vObj: false
+            },
+            methods: {
+                handleDivClick: function() {
+                    this.vObj = true;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
