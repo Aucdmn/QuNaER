@@ -5,21 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue中的样式绑定</title>
     <script src="./vue.js"></script>
+    <style>
+        .activated{
+            color: red;
+        }
+    </style>
 </head>
 <body>
-    <div id="app" :class="vObj" @click="handleDivClick">
+    <div id="app" 
+          //class对象绑定
+         :class="{activated: isActiveted}" 
+         @click="handleDivClick"
+    >
+        Fuck you u fat pussy
+    </div>
+
+    <div id="sec" 
+          //class对象绑定
+         :class="[activated]" 
+         @click="handleSecClick"
+    >
         Fuck you u fat pussy
     </div>
 
     <script>
         let vm = new Vue({
-            el: '#app',
+            el: '#sec',
             data: {
-                vObj: false
+                isActiveted: false,
+                activated: ''
             },
             methods: {
                 handleDivClick: function() {
-                    this.vObj = true;
+                    this.isActiveted = !this.isActiveted;
+                },
+                handleSecClick: function() {
+                    this.activated = this.activated === "activated" ? "" : "activated";
+                    
                 }
             }
         })
