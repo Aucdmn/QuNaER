@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>父子组件间的值传递</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <counter :count="0" @inc="handleIncrease" ref="first"></counter>
+        <counter :count="0" @inc="handleIncrease" ref="second"></counter>
+        <div>{{total}}</div>
+    </div>
+
+    <script>
+        let counter = {
+            props: ['count'],
+            data: function() {
+                return {
+                    number: this.count
+                }
+            },
+            template: '<div @click="handleClick">{{number}}</div>',
+            methods: {
+                handleClick: function() {
+                    this.number++;
+                    this.$emit('inc');
+                }
+            }
+        }
+
+        let vm = new Vue({
+            el: '#app',
+            components: {
+                counter: counter,
+            },
+            data: {
+                total: 0
+            },
+            methods: {
+                handleIncrease: function() {
+                    this.total = this.$refs.first.number + this.$refs.second.number
+                }
+            }
+        })
+    </script>
+</body>
+</html>
