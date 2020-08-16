@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue中的插槽（slot）</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <child>
+            <div class="header" slot="header">header</div>
+            <p slot="pp">u motherfucker</p>
+            <div class="footer" slot="footer">footer</div>
+        </child>
+    </div>
+
+    <script>
+
+        Vue.component('child', {
+            template: `<div>
+                       <slot name='header'></slot>
+                       <p>Fuck you</p>
+                       <slot name='pp'></slot>
+                       <slot name='footer'></slot>
+                       </div>
+                      `
+        })
+
+        let vm = new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+</html>

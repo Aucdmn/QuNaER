@@ -25,16 +25,16 @@
             props: {
                 content: String,
             },
-            template: '<div @click="handleClick">{{content}}</div>',
+            template: '<div @click="handleClick">{{selfContent}}</div>',
             methods: {
                 handleClick: function() {
-                    this.bus.$emit('change', this.content)
+                    this.bus.$emit('change', this.selfContent)
                 }
             },
             mounted: function() {
                 let this_ = this;
                 this.bus.$on('change', function(msg) {
-                    this_.content = msg;
+                    this_.selfContent = msg;
                 })
             }
         });
