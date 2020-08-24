@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-      <swiper ref="mySwiper" :options="swiperOptions">
+      <swiper ref="mySwiper" :options="swiperOptions" v-if="showSwiper">
           <swiper-slide v-for="item of list" :key="item.id">
             <img :src="item.imgUrl" class="swiper-img">
           </swiper-slide>
@@ -24,6 +24,11 @@ export default {
           clickable: true
         }
       }
+    }
+  },
+  computed: {
+    showSwiper () {
+      return this.list.length
     }
   }
 }
