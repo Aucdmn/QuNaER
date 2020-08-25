@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'HeaderCity'
+  name: 'CityHeader'
 }
 </script>
 
