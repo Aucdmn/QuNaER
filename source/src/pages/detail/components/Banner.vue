@@ -15,7 +15,11 @@
         </div>
       </div>
     </div>
-    <common-gallery :imgs="imgs" v-show="showGallery"></common-gallery>
+    <common-gallery
+      :imgs="imgs"
+      v-show="showGallery"
+      @close="handleGalleryClose"
+      ></common-gallery>
   </div>
 </template>
 
@@ -26,6 +30,9 @@ export default {
   methods: {
     handleBannerClick () {
       this.showGallery = true
+    },
+    handleGalleryClose () {
+      this.showGallery = false
     }
   },
   data () {
