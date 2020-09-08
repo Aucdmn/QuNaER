@@ -3,20 +3,20 @@
     <div class="banner" @click="handleBannerClick">
       <img
         class="banner-img"
-        src="https://img1.qunarzz.com/sight/p0/201311/25/581435d34c44340438a51592a21a2799.jpg_256x160_c937ee0e.jpg"
+        :src="bannerImg"
       >
       <div class="banner-info">
         <div class="banner-title">
-          贵州安顺黄果树大瀑布(AAAAA级景区)
+          {{this.sightName}}
         </div>
         <div class="banner-number">
           <span class="iconfont banner-icon">&#59054;</span>
-          39
+          {{this.bannerImgs.length}}
         </div>
       </div>
     </div>
     <common-gallery
-      :imgs="imgs"
+      :imgs="bannerImgs"
       v-show="showGallery"
       @close="handleGalleryClose"
       ></common-gallery>
@@ -27,6 +27,11 @@
 import CommonGallery from 'common/gallery/Gallery'
 export default {
   name: 'DetailBanner',
+  props: {
+    sightName: String,
+    bannerImg: String,
+    bannerImgs: Array
+  },
   methods: {
     handleBannerClick () {
       this.showGallery = true
@@ -37,9 +42,7 @@ export default {
   },
   data () {
     return {
-      showGallery: false,
-      imgs: ['https://imgs.qunarzz.com/vs_ceph_vs_tts/b2c33082-d525-4a3b-88c1-1b592b1f8632.jpg_r_390x260x95_d87fa97d.jpg',
-        'https://imgs.qunarzz.com/vs_ceph_vs_tts/aa0e51bd-1997-49c1-9d1d-d92e44adfff8.jpg_r_390x260x95_3dcd3945.jpg']
+      showGallery: false
     }
   },
   components: {
