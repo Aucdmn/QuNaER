@@ -1,3 +1,3 @@
 # QuNaER
-QuNaEr - travel website
-Vue.js
+* QuNaEr - travel website
+* Vue.js
