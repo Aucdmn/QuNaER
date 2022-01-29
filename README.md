@@ -1,2 +1,3 @@
 # QuNaER
-利用Vue制作--去哪儿网
+QuNaEr - travel website
+Vue.js
